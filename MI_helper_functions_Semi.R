@@ -117,11 +117,11 @@ ps_on_mice_imputation <- function(imp,
   # them as all observations being missing, and inserting the
   # propensity scores for each of the complete data frames.
   #
-  # To do that the imp$imp, imp$data, imp$where, and imp$nmis where
-  # modified to accomodate the newly introduced values in the data.
+  # To do that, the imp$imp, imp$data, imp$where, and imp$nmis were
+  # modified to accommodate the newly introduced values in the data.
   #
-  # Other functions can use these new structure, and will not notice
-  # that we changed it before using it. So functions like `with()`
+  # Other functions can use these new structures and will not notice
+  # that we changed them before using them. So functions like `with()`
   # or `complete()` will work as expected.
   #
   for (exposure in names(exposures)) {
@@ -164,7 +164,7 @@ ps_on_mice_imputation <- function(imp,
     }
   }
   for (exposure in names(exposures)) {
-    imp$data[,exposure] <- NA
+    imp$data[, exposure] <- NA
     col_names <- colnames(imp$where)
     col_names <- c(col_names, exposure)
     imp$where <- cbind(imp$where, TRUE)
@@ -172,7 +172,6 @@ ps_on_mice_imputation <- function(imp,
     imp$nmis[[exposure]] <- nrow(imp$data)
   }
   return(imp)
-  
 }
 
 ps_on_mice_imputation2 <- function(imp,
